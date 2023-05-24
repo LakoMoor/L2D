@@ -10,21 +10,21 @@ EMOJI <commit_message> (#number)
 
 Use one of the following emojis to represent the type of commit:
 
-- 🚀 :rocket: - New feature
-- 🐛 :bug: - Bug fix
-- 📚 :books: - Documentation
-- ♻️ :recycle: - Refactoring code
-- 🚧 :construction: - Work in progress
-- ⚙️ :gear: - Configuration or build-related changes
-- 🌱 :seedling: - Adding or updating dependencies
-- ✅ :white_check_mark: - Adding or updating tests
-- 🎨 :art: - Code style or formatting changes
-- 📝 :memo: - Updating README or documentation
-- 🚚 :truck: - Moving or renaming files
-- 🔄 :arrows_counterclockwise: - Updating or improving existing feature
-- 🔧 :wrench: - Configuration files or tooling changes
-- 🎉 :tada: - Initial commit or project setup
-- 🐾 :paw_prints: - Adding or updating assets (e.g., images, audio)
+- 🚀 `:rocket:` - New feature
+- 🐛 `:bug:` - Bug fix
+- 📚 `:books:` - Documentation
+- ♻️ `:recycle:` - Refactoring code
+- 🚧 `:construction:` - Work in progress
+- ⚙️ `:gear:` - Configuration or build-related changes
+- 🌱 `:seedling:` - Adding or updating dependencies
+- ✅ `:white_check_mark:` - Adding or updating tests
+- 🎨 `:art:` - Code style or formatting changes
+- 📝 `:memo:` - Updating README or documentation
+- 🚚 `:truck:` - Moving or renaming files
+- 🔄 `:arrows_counterclockwise:` - Updating or improving existing feature
+- 🔧 `:wrench:` - Configuration files or tooling changes
+- 🎉 `:tada:` - Initial commit or project setup
+- 🐾 `:paw_prints:` - Adding or updating assets (e.g., images, audio)
 
 For example, a commit message could look like this:
 
