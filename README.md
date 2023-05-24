@@ -24,7 +24,7 @@
 
 To get started with **L2D**, please refer to the [**Building ReadMe**](docs/README.md) for detailed instructions on building the game engine from source, setting up the necessary dependencies, and integrating it into your project.
 
-The [**Building ReadMe**](docs/README.md) provides step-by-step guidance to ensure a smooth setup process. It covers topics such as:
+The [**Building ReadMe**](docs/Build.md) provides step-by-step guidance to ensure a smooth setup process. It covers topics such as:
 
 * Cloning the **L2D** repository
 * Installing or build dependencies
@@ -43,11 +43,11 @@ When contributing, please ensure to adhere to the project's coding style and gui
 
 L2D would not have been possible without the following open-source libraries and projects:
 
-* [SDL2](https://libsdl.org/) - Simple DirectMedia Layer
-* [GLAD](https://glad.dav1d.de/) - OpenGL Loader-Generator
-* [GLM](https://github.com/g-truc/glm)
-* [Dear ImGui](https://github.com/ocornut/imgui)
-* [spdlog](https://github.com/gabime/spdlog)
+* [**SDL2**](https://libsdl.org/) - Simple DirectMedia Layer
+* [**GLAD**](https://glad.dav1d.de/) - OpenGL Loader-Generator
+* [**GLM**](https://github.com/g-truc/glm) - OpenGL Mathematics library
+* [**Dear ImGui**](https://github.com/ocornut/imgui) - Immediate mode graphical user interface library
+* [**spdlog**](https://github.com/gabime/spdlog) - Fast C++ logging library
 
 A heartfelt thank you to the developers and contributors of these projects for their excellent work.
 
