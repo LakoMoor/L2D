@@ -1,0 +1,45 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Set up CMake
+      if: matrix.os == 'windows-latest'
+      run: |
+        choco install cmake -y --installargs 'ADD_CMAKE_TO_PATH=System'
+        cmake --version
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake
+        cmake --version
+
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
+
+    - name: Build
+      run: cmake --build build --config ${{ env.BUILD_TYPE }}
+
+    - name: Test
+      run: ctest --verbose -C ${{ env.BUILD_TYPE }}
