@@ -3,7 +3,7 @@ project(L2DEngine VERSION 0.1.0)
 
 option(BUILD_SHARED_LIBS "Build Shared Libraries" ON) 
 
-set(IMGUI_DIR ${CMAKE_CURRENT_LIST_DIR}/vendor/imgui)
+set(IMGUI_DIR ../../vendor/imgui)
 
 set (CMAKE_CXX_STANDARD 17)
 
@@ -11,6 +11,7 @@ file(GLOB L2DEngine_SRC
     "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp"
     "${IMGUI_DIR}/*.cpp"
     "${IMGUI_DIR}/backends/imgui_impl_sdl2.cpp"
+    "${IMGUI_DIR}/backends/imgui_impl_sdlrenderer.cpp"
     "${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp"
 )
 
