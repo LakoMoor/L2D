@@ -9,6 +9,7 @@ set (CMAKE_CXX_STANDARD 17)
 
 file(GLOB L2DEngine_SRC
     "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/src/ui/*.cpp"
     "${IMGUI_DIR}/*.cpp"
     "${IMGUI_DIR}/backends/imgui_impl_sdl2.cpp"
     "${IMGUI_DIR}/backends/imgui_impl_sdlrenderer.cpp"
