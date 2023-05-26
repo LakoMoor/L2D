@@ -4,6 +4,7 @@
 
 #include <iostream>
 
+
 namespace l2de
 {
     Renderer::Renderer()
