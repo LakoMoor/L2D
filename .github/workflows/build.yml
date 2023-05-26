@@ -1,0 +1,41 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Install compiler and packages
+      run: |
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+          sudo apt-get install git cmake build-essential clang libxrandr-dev -y
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
+          brew install cmake
+        elif [[ "$OSTYPE" == "msys"* ]]; then
+          choco install git cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+        fi
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
