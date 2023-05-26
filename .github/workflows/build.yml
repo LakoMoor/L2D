@@ -26,13 +26,17 @@ jobs:
 
     - name: Install compiler and packages
       run: |
-        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-          sudo apt-get install git cmake build-essential clang libxrandr-dev -y
-        elif [[ "$OSTYPE" == "darwin"* ]]; then
-          brew install cmake
-        elif [[ "$OSTYPE" == "msys"* ]]; then
-          choco install git cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-        fi
+        case ${{ matrix.os }} in
+          ubuntu-latest)
+            sudo apt-get install git cmake build-essential clang libxrandr-dev -y
+            ;;
+          macos-latest)
+            brew install cmake
+            ;;
+          windows-latest)
+            choco install git cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+            ;;
+        esac
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
