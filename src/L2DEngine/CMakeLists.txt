@@ -48,6 +48,8 @@ target_include_directories(
         ${IMGUI_DIR}/backends/
 )
 
+set_target_properties(L2DEngine PROPERTIES PREFIX "")
+
 target_link_libraries(
         L2DEngine PUBLIC
         SDL2main

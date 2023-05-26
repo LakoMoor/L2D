@@ -14,13 +14,14 @@ namespace l2de
         ~Renderer();
         
         void createWindow(const char* title, int x, int y, int width, int height, Uint32 flags); // Функция создания окна
-        void runGameLoop();
-        void renderImGui();
+        void runEngineLoop();
 
     private:
         SDL_Window* window;
         SDL_Renderer* renderer;
+#ifdef GL
         SDL_GLContext glContext;
+#endif
         GLuint textureID;
 
         bool isRunning;
