@@ -27,13 +27,13 @@ jobs:
     - name: Install compiler and packages
       run: |
         case ${{ matrix.os }} in
-          ubuntu-latest)
+          (ubuntu-latest)
             sudo apt-get install git cmake build-essential clang libxrandr-dev -y
             ;;
-          macos-latest)
+          (macos-latest)
             brew install cmake
             ;;
-          windows-latest)
+          (windows-latest)
             choco install git cmake --installargs 'ADD_CMAKE_TO_PATH=System'
             ;;
         esac
