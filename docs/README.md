@@ -4,12 +4,12 @@ Welcome to the L2D documentation! Here you will find guides and resources to hel
 
 # **Navigation**
 
-- [**Building ReadMe**](docs/Build.md): Instructions on how to build the L2D game engine from source and set up the necessary dependencies.
-- [**Git Guide**](docs/Guide.md): A comprehensive guide on commit guidelines.
+- [**Building ReadMe**](Build.md): Instructions on how to build the L2D game engine from source and set up the necessary dependencies.
+- [**Git Guide**](Guide.md): A comprehensive guide on commit guidelines.
 
 # **Getting Started**
 
-If you are new to L2D, we recommend starting with the [**Building ReadMe**](docs/Guide.md) to set up the engine and build it from source. 
+If you are new to L2D, we recommend starting with the [**Building ReadMe**](Guide.md) to set up the engine and build it from source. 
 
 # **License**
 
