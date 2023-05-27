@@ -19,16 +19,17 @@ file(GLOB L2DEngine_SRC
 #SDL2
 add_subdirectory(../../vendor/SDL ../../vendor/SDL)
 include_directories(../../vendor/SDL/include/)
-link_directories(../../vendor/SDL/lib/)
+
+#SDL_image
+add_subdirectory(../../vendor/SDL_image ../../vendor/SDL_image)
+include_directories(../../vendor/SDL_image/)
 
 #spdlog
 add_subdirectory(../../vendor/spdlog  ../../vendor/spdlog)
-link_directories(../../vendor/spdlog/)
 include_directories(../../vendor/spdlog/include/)
 
 #glad
 add_subdirectory(../../vendor/glad  ../../vendor/glad )
-link_directories(../../vendor/glad)
 include_directories(../../vendor/glad/include/)
 
 add_library(
@@ -48,11 +49,19 @@ target_include_directories(
         ${IMGUI_DIR}/backends/
 )
 
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+set_target_properties(L2DEngine PROPERTIES PREFIX "Debug_")
+else(CMAKE_BUILD_TYPE STREQUAL "Release")
 set_target_properties(L2DEngine PROPERTIES PREFIX "")
+endif()
+if(CMAKE_BUILD_TYPE STREQUAL "OpenGL")
+set_target_properties(L2DEngine PROPERTIES PREFIX "GL")
+endif()
 
 target_link_libraries(
         L2DEngine PUBLIC
         SDL2main
         SDL2 
+        SDL2_image
         glad 
         )
