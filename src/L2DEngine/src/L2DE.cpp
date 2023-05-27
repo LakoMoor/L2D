@@ -46,11 +46,16 @@ namespace l2de
     {
         window = SDL_CreateWindow(title, x, y, width, height, flags);
 
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+#ifdef GL
+            glContext = SDL_GL_CreateContext(window);
+#else
+            renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+#endif
+
         if (renderer == NULL)
         {
             SDL_Log("Error creating SDL_Renderer!");
-            Renderer::~Renderer();
+            //Renderer::~Renderer();
         }
 
         spdlog::info("Window created");
@@ -58,11 +63,7 @@ namespace l2de
 
         if (window)
         {
-#ifdef GL
-            glContext = SDL_GL_CreateContext(window);
-#else
-            renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-#endif
+
         }
 #ifdef GL
         SDL_GL_MakeCurrent(window, glContext);
@@ -135,11 +136,14 @@ namespace l2de
 
             SDL_GL_SwapWindow(window);
 #else
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            float RGBColor[3];
+            SDL_SetRenderDrawColor(renderer, RGBColor[1], RGBColor[2], RGBColor[3], 255);
             ui.create();
             SDL_RenderClear(renderer);
 
-            ui.demo();
+            ImGui::Begin("BK");
+            ImGui::ColorEdit3("t", RGBColor);
+            ImGui::End();
             ui.render(renderer);
 
             SDL_RenderPresent(renderer);
